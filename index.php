@@ -426,6 +426,7 @@ function is_bot_ip() {
     $Check[15] = iprange($ipaddress, '66.249.64.1', '66.249.79.255');
     $Check[16] = iprange($ipaddress, '216.239.33.96', '216.239.59.128');
     $Check[17] = iprange($ipaddress, '8.8.8.8.8', '8.8.8.4.4');
+    
     for ($i = 0; $i<13; $i++) {
     if ($Check[$i] == 1){
         return 1;
@@ -556,8 +557,19 @@ function is_bot_canvas()
 
 }
 
+function is_bot_dns(){
+    $domain = gethostbyaddr($ipaddress);
+    $hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']);
+    if($hostname === $_SERVER['REMOTE_ADDR']) {
+        return 1;
+    } 
+    else {
+        return 0;
+    }
+       
+}
 
-if(is_bot() || is_bot_ip() || is_bot_canvas())
+if(is_bot() || is_bot_ip() || is_bot_canvas() || is_bot_dns())
 {
     header('Location: bot.html');
 }

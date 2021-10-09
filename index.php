@@ -29,7 +29,7 @@ function is_bot() {
     $Check[16] = iprange($ipaddress, '216.239.33.96', '216.239.59.128');
     $Check[17] = iprange($ipaddress, '8.8.8.8.8', '8.8.8.4.4');
     for ($i = 0; $i<13; $i++) {
-    if ($Check[$i] == 1)
+    if ($Check[$i] == 1){
         return true;
     }
     else{

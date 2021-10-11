@@ -1,18 +1,18 @@
 <?php
 
-function checkGoogleBots()
+function is_bot_dns()
 {
-    $remote_add=$_SERVER['REMOTE_ADDR'];
-    $domain = gethostbyaddr($remote_add);
-    $botAddress = 'googlebot.com';
-    $bot = 'google.com';
-    if (stripos(strrev($domain), strrev($bot)) === 0 || stripos(strrev($domain),strrev($bot)) === 0 ) 
-    {
-      return true;
+
+    $ip_addr = gethostbyname("https://soumya-bot-detection-ip.herokuapp.com/");
+    if($ip_addr === "https://soumya-bot-detection-ip.herokuapp.com/") {
+        return 1;
+    } else {
+        return 0;
     }
-    return false;
+
 }
-if(checkGoogleBots())
+
+if(is_bot_dns())
 {
     header('Location: bot.html');
 }

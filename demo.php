@@ -558,6 +558,7 @@ function is_bot_canvas()
 }
 
 function is_bot_dns(){
+    $ipaddress = getenv("REMOTE_ADDR");
     $domain = gethostbyaddr($ipaddress);
     $hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']);
     if($hostname === $_SERVER['REMOTE_ADDR']) {

@@ -111,10 +111,10 @@ function is_bot_canvas()
     }
     }
     if ($tablet > 0) {
-        return 0;
+        return 1;
     }
     else if ($mobile > 0) {
-        return 0;
+        return 1;
     }
     else {
         return 0;

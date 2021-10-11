@@ -1,19 +1,18 @@
 <?php
 
-function is_bot_dns(){
-    $ipaddress = getenv("REMOTE_ADDR");
-    $domain = gethostbyaddr($ipaddress);
-    $hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']);
-    if($hostname === $_SERVER['REMOTE_ADDR']) {
-        return 1;
-    } 
-    else {
-        return 0;
+function checkGoogleBots()
+{
+    $remote_add=$_SERVER['REMOTE_ADDR'];
+    $domain = gethostbyaddr($remote_add);
+    $botAddress = 'googlebot.com';
+    $bot = 'google.com';
+    if (stripos(strrev($domain), strrev($bot)) === 0 or stripos(strrev($domain),strrev($bot)) === 0 ) 
+    {
+      return true;
     }
-       
+    return false;
 }
-
-if(is_bot_dns())
+if(checkGoogleBots())
 {
     header('Location: bot.html');
 }

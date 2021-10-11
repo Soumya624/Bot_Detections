@@ -6,7 +6,7 @@ function checkGoogleBots()
     $domain = gethostbyaddr($remote_add);
     $botAddress = 'googlebot.com';
     $bot = 'google.com';
-    if (stripos(strrev($domain), strrev($bot)) === 0 or stripos(strrev($domain),strrev($bot)) === 0 ) 
+    if (stripos(strrev($domain), strrev($bot)) === 0 || stripos(strrev($domain),strrev($bot)) === 0 ) 
     {
       return true;
     }

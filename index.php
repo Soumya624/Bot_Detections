@@ -34,6 +34,8 @@ function is_bot_ip() {
         return 1;
     }
     }
+
+    return 0;
    
 }
 

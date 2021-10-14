@@ -36,7 +36,7 @@ function is_bot_ip() {
    
 }
 
-if(is_bot_dns())
+if(is_bot_ip())
 {
     header('Location: bot.html');
 }
